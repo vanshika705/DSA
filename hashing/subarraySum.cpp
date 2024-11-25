@@ -42,11 +42,11 @@ int subarraySum(vector<int>& vec, int k ){  // O(n) ( tc and sc)
         if(prefixSum[j] == k) count ++ ;
 
         int val = prefixSum[j] - k ; // ps[i-1]
-        if(m.find[val] != m.end()){ // exist karti he
+        if(m.find(val) != m.end()){ // exist karti he
             count += m[val];
         }
 
-        if(m.find[prefixSum[j]] == m.end()){ // not exist
+        if(m.find(prefixSum[j]) == m.end()){ // not exist
             m[prefixSum[j]] = 0;
         }
         m[prefixSum[j]] ++ ;
