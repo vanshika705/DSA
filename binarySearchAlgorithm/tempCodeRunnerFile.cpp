@@ -1,52 +1,47 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
+int rotatedSortedArray(vector<int> nums, int target){
+    int start =0 , end = nums.size() -1 ;
 
-int isPossible(vector<int> &arr, int N , int C, int minAllowedDistance){ // O(N)
-    int cows =1, lastStallPosition = arr[0];
+    while(start <= end){
+        int mid = start + ( end - start)/2;
 
-    for(int i =0; i < N ; i++){
-        if(arr[i] - lastStallPosition >= minAllowedDistance){
-            lastStallPosition = arr[i];
-            cows++;
+        if( target == nums[mid]){
+            return mid;
         }
-
-        if(cows == C) return true;
-    }
-    return false;
-
-}
-int getDistance(vector<int> &arr, int N , int C){
-
-    sort(arr.begin(), arr.end()); // NlogN
-
-    int start = 1 , end = arr[N-1] - arr[0], ans = -1;
-
-    while(start <= end){ // O(log(range) * N)
-        int mid = start + (end - start )/2;
-
-        if(isPossible(arr,N,C,mid)){ // right
-            ans = mid;
-            start = mid +1;
+        if(nums[start] <= nums[mid]){
+            if( nums[start]<= target && target <= nums[mid]){
+                end = mid -1;
+            }
+            else{
+                start= mid +1;
+            }
         }
-        else end = mid -1; // left
-
+        else {
+            if( nums[mid]<= target && target <= nums[end]){
+                start= mid +1;
+            }
+            else{
+                end = mid -1;
+            }
+        }
     }
-    return ans;
-
+    return -1;
 }
 
 int main(){
-    vector<int> arr = {1,2,8,4,9};
-    int N = 5, C  = 3;
-    for(int val:arr){
-        cout<< val<< " ";
+    vector<int> nums = {3,4,5,6,7,0,1,2};
+
+    cout<< "your array is : ";
+    for(int val:nums){
+        cout << val << " ";
     }
     cout << endl;
 
-    cout<< "Largest minimum distance between cows is : "<<  getDistance(arr, N, C);
+    int target = 0 ;
+    
+    cout << "value is found at index : "<< rotatedSortedArray(nums, target);
 
     return 0;
-
 }
