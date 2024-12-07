@@ -66,14 +66,6 @@ int main(){
 
     solveSudoku(board);
 
-    for(const auto &row :board){
-        for(const auto &val :row){
-            cout<<val<< " ";
-        }
-        cout<<endl;
-    }
-    cout<<endl;
-
     return 0;
 }
 
