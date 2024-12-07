@@ -50,7 +50,7 @@ bool helper(vector<vector<char>> &board,int row,int col){
             if(helper(board,nextRow,nextCol)){
                 return true;
             }
-            board[row][col] = dig;
+            board[row][col] = '.';
         }
     }
 
@@ -66,13 +66,14 @@ int main(){
 
     solveSudoku(board);
 
-    for(const auto &row :board){
-        for(const auto &val :row){
-            cout<<val<< " ";
+    for(const auto &row : board){
+        for(const auto &val : row){
+            cout<< val << " ";
         }
-        cout<<endl;
+        cout<< endl;
     }
-    cout<<endl;
+    cout<< endl;
+
 
     return 0;
 }

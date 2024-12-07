@@ -50,7 +50,7 @@ bool helper(vector<vector<char>> &board,int row,int col){
             if(helper(board,nextRow,nextCol)){
                 return true;
             }
-            board[row][col] = dig;
+            board[row][col] = '.';
         }
     }
 
@@ -65,6 +65,15 @@ int main(){
     vector<vector<char>> board = {{'2','.','.','.','.','1','4','.','.'},{'7','.','.','.','9','.','.','.','.'},{'.','3','.','.','5','6','.','.','2'},{'.','7','.','2','1','8','5','.','6'},{'1','.','2','.','.','5','9','3','.'},{'.','6','.','.','9','.','.','.','.'},{'6','.','.','.','8','.','.','.','.'},{'9','.','.','5','.','3','8','.','.'},{'4','1','8','.','2','.','.','6','5'}};
 
     solveSudoku(board);
+
+    for(const auto &row : board){
+        for(const auto &val : row){
+            cout<< val << " ";
+        }
+        cout<< endl;
+    }
+    cout<< endl;
+
 
     return 0;
 }
