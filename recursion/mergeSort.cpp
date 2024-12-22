@@ -10,7 +10,7 @@ void merge(vector<int>  &arr, int st ,int mid, int end){ //O(n)
     int i =st, j =mid+1;
 
     while(i <=mid && j<=end){
-        if(arr[i] <=arr[j]){
+        if(arr[i] <=arr[j]){   // for descending order use >=
             temp.push_back(arr[i]);
             i++;
         }else{
