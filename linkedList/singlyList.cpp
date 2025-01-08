@@ -103,7 +103,7 @@ class List{
         }
 
         void printLL(){
-            Node* temp;
+            Node* temp = head;
 
             while(temp != NULL){
                 cout << temp -> data << " ";
@@ -135,16 +135,20 @@ int main(){
     ll.push_front(1);
     ll.push_front(2);
     ll.push_front(3);
+    ll.printLL(); 
 
     ll.insert(4 , 1);
-    // ll.push_back(5);
+    ll.printLL(); 
 
-    // ll.pop_front();
+    ll.push_back(5);
+    ll.push_back(6);
+    ll.push_back(7);
+    ll.printLL(); 
 
-    // ll.printLL(); 
+    ll.pop_front();
+    ll.printLL(); 
 
-    // ll.pop_back();
-
+    ll.pop_back();
     ll.printLL(); 
 
     cout << ll.search(2)<< endl;
