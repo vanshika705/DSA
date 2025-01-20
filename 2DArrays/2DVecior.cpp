@@ -4,6 +4,7 @@ using namespace std;
 
 int main(){
     vector<vector<int>> vec = {{1,2,3},{4,5,6,10,11},{7,8,9}}; 
+ 
 
     // row => vec.size();
     // col => vec[i].size();
