@@ -11,8 +11,8 @@ int main(){
     vector<int> ans(price.size(),0);
     stack<int> s;
 
-    for(int i =0 ; i<price.size(); i++){
-        while(s.size() > 0 && price[s.top()] <= price[i]){
+    for(int i =0 ; i<price.size(); i++){ //O(n)
+        while(s.size() > 0 && price[s.top()] <= price[i]){ //O(1)
             s.pop();
         }
 
