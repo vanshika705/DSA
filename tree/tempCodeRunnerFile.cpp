@@ -97,6 +97,36 @@ void levelorder(Node* root){
 
 }
 
+// calculate height to btree
+int height(Node* root){
+    if(root == NULL) return 0;
+
+    int left_ht = height(root->left);
+    int right_ht = height(root -> right);
+
+    return max(left_ht, right_ht) + 1;
+}
+
+// count nodes of btree
+int count(Node* root){
+    if(root == NULL) return 0;
+
+    int left_cnt = count(root->left);
+    int right_cnt = count(root -> right);
+
+    return left_cnt + right_cnt + 1;
+}
+
+// calculate sum of nodes of btree
+int sumOfNodes(Node* root){
+    if(root == NULL) return 0;
+
+    int leftSum = sumOfNodes(root->left);
+    int rightSum = sumOfNodes(root -> right);
+
+    return  leftSum + rightSum + root->data;
+}
+
 int main(){
     vector<int> preorder = {1 ,2 , -1 , -1  , 3, 4, -1, -1, 5, -1, -1 };
 
@@ -116,6 +146,13 @@ int main(){
 
     levelorder(root);
     cout<<endl;
+
+    cout<< "Height of tree : "<< height(root) <<endl;
+
+    cout<< "Nodes of tree : "<< count(root) <<endl;
+
+    cout<< "Sum of Nodes of tree : "<< sumOfNodes(root) <<endl;
+
 
 
     return 0 ;
