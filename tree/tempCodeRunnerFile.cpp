@@ -160,6 +160,21 @@ void topView(Node* root){
     cout << endl;
 }
 
+// kth level of BT
+void KthLevel(Node* root, int k){
+    if(root == NULL){
+        return;
+    }
+
+    if(k == 1){
+        cout << root ->data << " ";
+        return ;
+    }
+
+    KthLevel(root -> left , k-1);
+    KthLevel(root -> right , k-1);
+}
+
 int main(){
     vector<int> preorder = {1 ,2 , -1 , -1  , 3, 4, -1, -1, 5, -1, -1 };
 
@@ -187,6 +202,8 @@ int main(){
     cout<< "Sum of Nodes of tree : "<< sumOfNodes(root) <<endl;
 
     topView(root);
+
+    KthLevel(root , 3);
 
     return 0 ;
 }
