@@ -175,6 +175,19 @@ void KthLevel(Node* root, int k){
     KthLevel(root -> right , k-1);
 }
 
+// transform to sum tree
+int sumTree(Node* root){ //O(n)
+    if(root == NULL){
+        return 0;
+    }
+
+    int leftSum = sumTree(root->left);
+    int rightSum = sumTree(root -> right);
+
+    root -> data += leftSum + rightSum;
+    return root->data;
+}
+
 int main(){
     vector<int> preorder = {1 ,2 , -1 , -1  , 3, 4, -1, -1, 5, -1, -1 };
 
@@ -202,8 +215,20 @@ int main(){
     cout<< "Sum of Nodes of tree : "<< sumOfNodes(root) <<endl;
 
     topView(root);
+    cout<< endl;
 
     KthLevel(root , 3);
+    cout<< endl;
+
+    cout << "before conversion"<<endl ;
+    preOrder(root);
+    cout<< endl;
+
+    sumTree(root);
+
+    cout << "after conversion"<<endl ;
+    preOrder(root);
+    cout<< endl;
 
     return 0 ;
 }
