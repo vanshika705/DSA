@@ -188,6 +188,11 @@ int sumTree(Node* root){ //O(n)
     return root->data;
 }
 
+
+
+
+
+
 int main(){
     vector<int> preorder = {1 ,2 , -1 , -1  , 3, 4, -1, -1, 5, -1, -1 };
 
@@ -230,5 +235,6 @@ int main(){
     preOrder(root);
     cout<< endl;
 
+    
     return 0 ;
 }
