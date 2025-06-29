@@ -17,8 +17,7 @@ class Node{
     }
 };
 
-// building binary search tree
-
+// insert nide in BST
 Node* insert(Node* root, int val){
     if(root == NULL){
         return new Node(val);
@@ -32,6 +31,9 @@ Node* insert(Node* root, int val){
 
     return root;
 }
+
+// building binary search tree
+
 Node* buildBST(vector<int> arr){
     Node* root = NULL;
 
@@ -105,6 +107,7 @@ Node* delNode(Node* root , int key){
     return root;
 }
 
+
 int main(){
 
     vector<int> arr = {3,2,1,5,6,4};
@@ -126,6 +129,7 @@ int main(){
     inorder(root);
     cout<< endl;
 
+    
     return 0;
 
 }
