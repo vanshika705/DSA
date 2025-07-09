@@ -58,7 +58,7 @@ void inorder(Node* root, vector<int> &arr){
 }
 
 // build BST from sorted order
-Node* buildBSTFromSorted(vector<int> arr, int st , int end){
+Node* buildBSTFromSorted(vector<int> arr, int st , int end){  // O(m + n) , m is no. of nodes in arr1 and n in arr2
     if(st > end) return NULL;
 
     int mid = st+(end-st)/2;
