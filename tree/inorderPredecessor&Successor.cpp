@@ -36,7 +36,7 @@ Node* leftMostInRightSubtree(Node* root){
     return ans;
 }
 
-vector<int> getPredSucc(Node* root , int key){
+vector<int> getPredSucc(Node* root , int key){   // O(height)
     Node* curr = root;
     Node* pred = NULL;
     Node* succ = NULL;
@@ -78,7 +78,7 @@ int main(){
 
     // int key = 7; // 6,8
     // int key = 6; // 5,7
-    int key = 3;
+    int key = 3;  //1,4
     vector<int> ans = getPredSucc(root,key);
     cout<< "predecessor: " << ans[0]<< endl;
     cout<< "succcessor: " << ans[1]<< endl;
