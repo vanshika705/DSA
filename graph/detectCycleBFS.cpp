@@ -15,7 +15,7 @@ public:
     }
 
     void addEdge(int u, int v){ 
-        l[u].push_back(v);  // u--->v
+        l[u].push_back(v);  // u--->v5
         l[v].push_back(u);  // u<---v
     }
 
