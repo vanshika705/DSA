@@ -26,7 +26,7 @@ int stringCompression(vector<char> & chars){  // O(n)
                 chars[idx++] = dig;
             }
         }
-        i--;
+        // i--;
     }
     chars.resize(idx);
 

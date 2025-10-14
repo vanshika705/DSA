@@ -2,37 +2,37 @@
 #include <vector>
 using namespace std;
 
-int reverse(int n){
+string primeNumber(int n){
 
-    int revNum =0;
-
-    while( n != 0){
-        int digit = n % 10 ;
-
-        if(revNum > INT32_MAX/10  || revNum < INT32_MIN/10) return 0;
-        
-        revNum = ( revNum * 10) + digit;
-        n = n/ 10;
+    for(int i =2; i*i<=n; i++){
+        if(n%2==0) return "non prime";
     }
-    return revNum;
+    return "prime number";
 }
 
-bool isPalindrome(int n ){
-    if( n < 0 ) return false;
+int countPrime(int n){
+    vector<bool> isPrime(n+1, true);
+    int count = 0;
 
-    int revNum = reverse(n);
-    return n == revNum ;
+    for(int i =2; i<n; i++){
+        if(isPrime[i]) {
+            count++ ;
+
+            for(int j = i*2; j<n; j= j+i){
+                isPrime[j] = false;
+            }
+        }
+    }
+    return count;
 }
 
 int main(){
-    int a  ;
-    cout << "enter number  : ";
-    cin >>  a ;
-    
-    if(isPalindrome(a)) cout << "number is palindrome ";
-    else cout << "number is not palindrome ";
-    
+    int n ;
+    cout << "enter a number : ";
+    cin >>  n ;
 
+    cout << primeNumber(n) << endl;
+    cout << countPrime(n);
 
     return 0;
 }
