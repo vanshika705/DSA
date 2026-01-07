@@ -46,7 +46,7 @@ int main(){
     g[1].push_back(Edge(2,-4));
     g[1].push_back(Edge(4,-1));
 
-    g[2].push_back(Edge(3,2));
+    g[2].push_back(Edge(3,2));x
 
     g[3].push_back(Edge(4,4));
 
